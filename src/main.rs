@@ -2,7 +2,6 @@ use std::io;
 use std::io::Write;
 use raylib::prelude::*;
 use rand::Rng;
-use std::{thread, time};
 
 #[derive(Clone, Debug)]
 enum CellStatus {
@@ -108,7 +107,6 @@ impl Board {
             for cell in row {
                 match cell {
                     CellStatus::Alive => d.draw_rectangle(x as i32, y as i32, cell_width.round() as i32, cell_height.round() as i32, Color::BLACK),
-                    // _ => (),
                     CellStatus::Dead => d.draw_rectangle(x as i32, y as i32, cell_width.round() as i32, cell_height.round() as i32, Color::WHITE),
                 }
 
@@ -156,6 +154,5 @@ fn main() {
 
         board.window_draw(&mut d, SCREEN_WIDTH, SCREEN_HEIGHT);
         board.run_turn();
-        // d.clear_background(Color::WHITE);
     }
 }
